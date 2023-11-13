@@ -1,0 +1,60 @@
+Multithreading and Concurrency
+
+Multithreading can help improve the responsiveness of a program by allowing it to continue running while performing other tasks in the background.
+Concurrency, refers to the ability of multiple threads to access shared resources simultaneously.
+
+1. What is mutithreading: Execute independent tasks without blocking other tasks, uses time slicing alogorithm
+idea is to divide a single process into multiple threads instead of creating a whole new process.
+2. Thread: Unit of CPU execution (used to avoid application to freeze)/what a CPU core executes. Every thread has own stack memory and shared heap memory.Each thread has its own set of registers and stack space.It is sequential flow of tasks
+Eg: Opening two tabs in the same browser. (interdependent tasks)
+
+3. Process: Instance of program execution eg: open a software
+Creation and termination times of processes are slower.
+Eg: Opening two different browsers.
+4. Synchronization: Multiple processes(cores) that can be executed in a parallel manner - makes responsive application and better resource utilization
+Major disadvantage: Manipulating data at same time, difficult to test
+
+We need to use synchronized variable if two threads are accessing same variable
+
+5. Life Cycle: New -> Active -> Blocked/Waiting -> Terminated
+
+join()- wait for the thread to finish
+JVM creates two type of threads Main(main thread when application starts(main method)) and Child thread
+6. Daemon Thread - helper thread,low priority thread, handles garbage collection and terminated by JVM, I/O operations
+7. Worker Thread - Not terminated by JVM
+Thread pool represents a group of worker threads that are waiting for the job and reused many times.
+
+8. Intrinsic lock: Every java object has intrinsic lock, that needs exclusive and consistent access has to acquire it
+9.Context switching in OS is the process of storing the state of a running process or thread, so that it can be restored and resume execution at a later point, and then loading the context or state of another process or thread and run it. 
+It enables multitasking, efficient resource management, and fairness. While it can be a costly operation, the benefits it provides far outweigh the overhead.
+
+10. Volatile Keyword: Ensures variable is read from and written to main memory rather than cache to avoid data inconsistency
+
+Vector, HashMap, HashTable, Stack - Synchronized Collection 
+
+11. Deadlock : It occurs wen two or more threads wait forever for a lock/resource which is held by another thread.
+eg: database update: thread 1 updating two rows as row1 and row 2 and in the same time frame thread 2 is updating it in reverse order like row2 and then row1
+avoided by using tryLock(), thread acquires the lock in same order to avoid cyclic dependency.
+
+12. Livelock: A thread often acts in response to action of another thread
+-- they are unable to make any progress, but they are not blocked, they are too busy responding to each other to resume work
+-- like two people attempting to pass in a narrow lane 
+Can be avoided when threads retry acquiring the locks at random intervals
+
+13. Atomic Varibles :  a variable whose value changes automatically...AtomicInteger uses getAndIncrement and other methods, AtomicLong works fine we dont need synchronized keyword then
+--perform better than a synchronized keyword because atomic variables use concurrency support provided by hardware for various atomic operations, like Compare-And-Swap or read-modify-write. But note that synchronization uses a locking mechanism hence it is slower than atomic variables.
+
+14. Semaphores: Signalling Mechanism, record of how many resources are available
+It controls access to shared resource which has counter variable.
+
+acquire() -if permit is available takes it
+release() - adds a permit
+
+15. ExecutorService is a JDK API that simplifies running tasks in asynchronous mode.ExecutorService automatically provides a pool of threads and an API for assigning tasks to it.
+ExecutorService executor = Executors.newFixedThreadPool(10);
+
+16. Runnable Interface: run and forget action, no return value, run() method
+17. Callable Interface : call(),return a value but not explicitly using Future class object which has get() method
+18. Concurrent Maps: We can make Map synchronized with defining segments of array... segment can be updated by single thread and we can assign a lock to every segment.
+Every thread can read any item from underlying array without restrictions.
+
