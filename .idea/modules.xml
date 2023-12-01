@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DiningPhilospher/DiningPhilospher.iml" filepath="$PROJECT_DIR$/DiningPhilospher/DiningPhilospher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ForkJoinFrameworkExample/ForkJoinFrameworkExample.iml" filepath="$PROJECT_DIR$/ForkJoinFrameworkExample/ForkJoinFrameworkExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MulithreadingPractice.iml" filepath="$PROJECT_DIR$/MulithreadingPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentLibraryProblem/StudentLibraryProblem.iml" filepath="$PROJECT_DIR$/StudentLibraryProblem/StudentLibraryProblem.iml" />
+    </modules>
+  </component>
+</project>
